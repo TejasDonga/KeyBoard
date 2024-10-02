@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key-Bord</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #232323;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* table {
+            border-collapse: collapse;
+            margin: 20px;
+        } */
+        th, td {
+            border: 2px solid white;
+            padding: 10px 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        th {
+            background-color: black;
+        }
+
+        #container {
+            /* border: 2px solid white; */
+            height: 100vh;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #key {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .key {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="key">Press the key and watch magic </div>
+    </div>
+</body>
+<script>
+    const insert = document.querySelector('#container')
+
+    window.addEventListener('keydown', function (e) {
+        insert.innerHTML = `
+        <div class="key"> 
+<table>
+  <tr>
+    <th>key</th>
+    <th>code</th>
+    <th>keyName</th>
+  </tr>
+  <tr>
+    <td>${e.key === ' ' ? 'space' : e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+</table>
+        </div>
+    `
+    });
+</script>
+
+</html>
